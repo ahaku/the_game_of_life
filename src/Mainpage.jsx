@@ -47,6 +47,7 @@ function Mainpage() {
     const [numberCols, setNumberCols] = useState(30);
     const [grid, setGrid] = useState(emptyGridGenerate());
     const [cellSize, setSellSize] = useState('20px');
+    const [savedGrid, setSavedGrid] = useState(grid);
     
     const [running, setRunnig] = useState(false);
     const [colors, setColors] = useState({
@@ -80,6 +81,18 @@ function Mainpage() {
                             rows.push(Array.from(Array(numberCols), () => Math.random() > 0.7 ? 1 : 0))
                         }
                         setGrid(rows);
+                    }}
+                />
+                <Button
+                    title="Save grid"
+                    onClick={() => {
+                        setSavedGrid(grid);
+                    }}
+                />
+                <Button
+                    title="Load grid"
+                    onClick={() => {
+                        setGrid(savedGrid);
                     }}
                 />
             </div>

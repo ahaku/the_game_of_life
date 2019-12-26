@@ -2,13 +2,19 @@
     display: grid;
 }
 
+
+.Cell:hover {
+    cursor: pointer;
+}
+
 .Button {
     min-width: 100px;
     padding: 20px;
+    font-weight: bold;
 }
 .Button:hover {
     cursor: pointer;
 }
 .Button:active {
-    background-color: darkslategrey;
+    background-color: darkgray;
 }
