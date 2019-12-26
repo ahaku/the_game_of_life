@@ -1,4 +1,5 @@
 import React, {useState}from 'react';
+import produce from 'immer';
 import './Mainpage.css';
 
 
@@ -18,6 +19,12 @@ function Grid(props) {
                             height: props.cellSize,
                             backgroundColor: props.grid[i][j] ? colors.filledCellBg : colors.emptyCellBg,
                             border: '1px solid white'
+                        }}
+                        onClick={() => {
+                            const changedGrid = produce(props.grid, copyOfGrid => {
+                                copyOfGrid[i][j] = props.grid[i][j] ? 0 : 1;
+                            })
+                            props.setGrid(changedGrid);
                         }}
                         ></div>
                     ))
@@ -56,6 +63,7 @@ function Mainpage() {
             numberCols={numberCols}
             cellSize={cellSize}
             grid={grid}
+            setGrid={setGrid}
             colors={colors}
             ></Grid>
         </div>
