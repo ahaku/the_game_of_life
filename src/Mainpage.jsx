@@ -3,7 +3,14 @@ import produce from 'immer';
 import './Mainpage.css';
 
 
-
+function Button(props) {
+    return (
+    <button 
+    className="Button"
+    onClick={props.onClick}
+    >{props.title}</button>
+    )
+}
 
 function Grid(props) {
     const {colors} = props;
@@ -58,6 +65,24 @@ function Mainpage() {
 
     return (
         <div className='Mainpage'>
+            <div className="ButtonRow">
+                <Button 
+                title="Clear"
+                onClick={() => {
+                    setGrid(emptyGridGenerate())
+                }}
+                />
+                <Button
+                    title="Random"
+                    onClick={() => {
+                        const rows = [];
+                        for (let i = 0; i < numberRows; i++) {
+                            rows.push(Array.from(Array(numberCols), () => Math.random() > 0.7 ? 1 : 0))
+                        }
+                        setGrid(rows);
+                    }}
+                />
+            </div>
             <Grid
             numberRows={numberRows}
             numberCols={numberCols}
