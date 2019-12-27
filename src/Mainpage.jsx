@@ -18,6 +18,7 @@ function Button(props) {
     return (
     <button 
     className="Button"
+    disabled={props.disabled}
     onClick={props.onClick}
     >{props.title}</button>
     )
@@ -75,6 +76,14 @@ function Mainpage() {
             rows.push(Array.from(Array(numberCols), () => 0));
         }
         return rows;
+    }
+
+    function customSizeGridGenerate(r, c) {
+        const newGrid = [];
+        for (let i = 0; i < r; i++) {
+            newGrid.push(Array.from(Array(c), () => 0))
+        }
+        return newGrid;
     }
 
     const runningRef = useRef(running);
@@ -152,6 +161,26 @@ function Mainpage() {
                             runningRef.current = true;
                             runGame();
                         }
+                    }}
+                />
+                <Button
+                    title='50 x 50'
+                    disabled={runningRef.current ? true : false}
+                    onClick={() => {
+                        setGrid(customSizeGridGenerate(50, 50));
+                        setNumberRows(50);
+                        setNumberCols(50);
+                        setSavedGrid(customSizeGridGenerate(50, 50));
+                    }}
+                />
+                <Button
+                    title='30 x 30'
+                    disabled={runningRef.current ? true : false}
+                    onClick={() => {
+                        setGrid(customSizeGridGenerate(30, 30));
+                        setNumberRows(30);
+                        setNumberCols(30);
+                        setSavedGrid(customSizeGridGenerate(30, 30));
                     }}
                 />
             </div>
