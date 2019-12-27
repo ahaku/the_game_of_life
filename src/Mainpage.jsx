@@ -1,6 +1,17 @@
-import React, {useState}from 'react';
+import React, {useState, useRef, useCallback}from 'react';
 import produce from 'immer';
 import './Mainpage.css';
+
+const neighborsCoordinates = [
+    [-1, 1],
+    [0, 1],
+    [1, 1],
+    [1, 0],
+    [1, -1],
+    [0, -1],
+    [-1, -1],
+    [-1, 0] 
+]
 
 
 function Button(props) {
@@ -48,8 +59,9 @@ function Mainpage() {
     const [grid, setGrid] = useState(emptyGridGenerate());
     const [cellSize, setSellSize] = useState('20px');
     const [savedGrid, setSavedGrid] = useState(grid);
+    const [gameSpeed, setGameSpeed] = useState(100);
     
-    const [running, setRunnig] = useState(false);
+    const [running, setRunning] = useState(false);
     const [colors, setColors] = useState({
         'pageBackground': 'white',
         'emptyCellBg': '#212121',
@@ -63,6 +75,41 @@ function Mainpage() {
         }
         return rows;
     }
+
+    const runningRef = useRef(running);
+    runningRef.current = running;
+
+    const runGame = useCallback(() => {
+        if (!runningRef.current) {
+            return;
+        }
+
+        setGrid(prevGrid => {
+            return produce(prevGrid, nextGrid => {
+                for (let i = 0; i < numberRows; i++) {
+                    for (let j = 0; j < numberCols; j++) {
+                        let numberNeighbors = 0;
+                        neighborsCoordinates.forEach(([x, y]) => {
+                            const neighborX = i + x;
+                            const neighborY = j + y;
+                            if (neighborX >= 0 && neighborX < numberRows && neighborY >= 0 && neighborY < numberCols) {
+                                numberNeighbors += prevGrid[neighborX][neighborY];
+                            }
+                        })
+
+                        if (numberNeighbors < 2 || numberNeighbors > 3) {
+                            nextGrid[i][j] = 0;
+                        } else if (prevGrid[i][j] === 0 && numberNeighbors === 3) {
+                            nextGrid[i][j] = 1;
+                        }
+                    }
+                }
+            })
+        })
+
+        setTimeout(runGame, gameSpeed);
+    }, []) 
+
 
     return (
         <div className='Mainpage'>
@@ -93,6 +140,17 @@ function Mainpage() {
                     title="Load grid"
                     onClick={() => {
                         setGrid(savedGrid);
+                    }}
+                />
+                <Button 
+                    title={running ? 'Stop' : 'Start'}
+                    onClick={() => {
+                        setRunning(!running)
+                        console.log(gameSpeed)
+                        if (!running) {
+                            runningRef.current = true;
+                            runGame();
+                        }
                     }}
                 />
             </div>
