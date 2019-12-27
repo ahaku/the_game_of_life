@@ -1,3 +1,7 @@
+.Mainpage {
+    min-height: 100vh;
+}
+
 .GridWrapper {
     display: grid;
 }

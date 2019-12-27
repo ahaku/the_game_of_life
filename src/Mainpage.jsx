@@ -38,7 +38,7 @@ function Grid(props) {
                             width: props.cellSize,
                             height: props.cellSize,
                             backgroundColor: props.grid[i][j] ? colors.filledCellBg : colors.emptyCellBg,
-                            border: '1px solid white'
+                            border: colors.border
                         }}
                         onClick={() => {
                             const changedGrid = produce(props.grid, copyOfGrid => {
@@ -67,7 +67,8 @@ function Mainpage() {
     const [colors, setColors] = useState({
         'pageBackground': 'white',
         'emptyCellBg': '#212121',
-        'filledCellBg': 'green'
+        'filledCellBg': '#00ff00',
+        'border': '1px solid white'
     })
 
     function emptyGridGenerate() {
@@ -122,7 +123,7 @@ function Mainpage() {
 
 
     return (
-        <div className='Mainpage'>
+        <div className='Mainpage' style={{backgroundColor: colors.pageBackground}}>
             <div className="ButtonRow">
                 <Button 
                 title="Clear"
