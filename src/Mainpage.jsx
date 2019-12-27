@@ -32,6 +32,7 @@ function Grid(props) {
                     row.map((col, j) => (
                         <div 
                         className="Cell"
+                        key={`${i}:${j}`}
                         style={{
                             width: props.cellSize,
                             height: props.cellSize,
@@ -108,7 +109,7 @@ function Mainpage() {
         })
 
         setTimeout(runGame, gameSpeed);
-    }, []) 
+    }, [numberRows, numberCols, gameSpeed]) 
 
 
     return (
