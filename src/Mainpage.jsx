@@ -57,17 +57,17 @@ function Grid(props) {
 function Mainpage() {
     
     const [numberRows, setNumberRows] = useState(30);
-    const [numberCols, setNumberCols] = useState(30);
+    const [numberCols, setNumberCols] = useState(60);
     const [grid, setGrid] = useState(emptyGridGenerate());
-    const [cellSize, setSellSize] = useState('20px');
+    const [cellSize, setSellSize] = useState('18px');
     const [savedGrid, setSavedGrid] = useState(grid);
     const [gameSpeed, setGameSpeed] = useState(100);
     
     const [running, setRunning] = useState(false);
     const [colors, setColors] = useState({
         'pageBackground': 'white',
-        'emptyCellBg': '#212121',
-        'filledCellBg': '#00ff00',
+        'emptyCellBg': 'rgb(236, 236, 236)',
+        'filledCellBg': 'dodgerblue',
         'border': '1px solid white'
     })
 
@@ -182,6 +182,14 @@ function Mainpage() {
                         setNumberRows(30);
                         setNumberCols(30);
                         setSavedGrid(customSizeGridGenerate(30, 30));
+                    }}
+                />
+                <Button 
+                    title='Hide cell border'
+                    onClick={() => {
+                        const newColors = colors;
+                        newColors.border = 'none';
+                        setColors(newColors)
                     }}
                 />
             </div>
