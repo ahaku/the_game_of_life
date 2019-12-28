@@ -1,5 +1,6 @@
 import React, {useState, useRef, useCallback}from 'react';
 import produce from 'immer';
+import ButtonMD from '@material-ui/core/Button';
 import './Mainpage.css';
 
 const neighborsCoordinates = [
@@ -15,12 +16,16 @@ const neighborsCoordinates = [
 
 
 function Button(props) {
+    
     return (
-    <button 
+    <ButtonMD 
+    // classes={{ label: 'Button' }}
     className="Button"
+    variant={props.variant}
+    color={props.color}
     disabled={props.disabled}
     onClick={props.onClick}
-    >{props.title}</button>
+    >{props.title}</ButtonMD>
     )
 }
 
@@ -125,13 +130,17 @@ function Mainpage() {
     return (
         <div className='Mainpage' style={{backgroundColor: colors.pageBackground}}>
             <div className="ButtonRow">
-                <Button 
+                <Button
+                variant='contained'
+                color='primary' 
                 title="Clear"
                 onClick={() => {
                     setGrid(emptyGridGenerate())
                 }}
                 />
                 <Button
+                    variant='contained'
+                    color='primary'
                     title="Random"
                     onClick={() => {
                         const rows = [];
@@ -142,18 +151,24 @@ function Mainpage() {
                     }}
                 />
                 <Button
+                    variant='contained'
+                    color='primary' 
                     title="Save grid"
                     onClick={() => {
                         setSavedGrid(grid);
                     }}
                 />
                 <Button
+                    variant='contained'
+                    color='primary' 
                     title="Load grid"
                     onClick={() => {
                         setGrid(savedGrid);
                     }}
                 />
                 <Button 
+                    variant='contained'
+                    color='primary' 
                     title={running ? 'Stop' : 'Start'}
                     onClick={() => {
                         setRunning(!running)
@@ -165,6 +180,8 @@ function Mainpage() {
                     }}
                 />
                 <Button
+                    variant='contained'
+                    color='primary' 
                     title='50 x 50'
                     disabled={runningRef.current ? true : false}
                     onClick={() => {
@@ -175,6 +192,8 @@ function Mainpage() {
                     }}
                 />
                 <Button
+                    variant='contained'
+                    color='primary' 
                     title='30 x 30'
                     disabled={runningRef.current ? true : false}
                     onClick={() => {
@@ -185,6 +204,8 @@ function Mainpage() {
                     }}
                 />
                 <Button 
+                    variant='contained'
+                    color='primary' 
                     title='Hide cell border'
                     onClick={() => {
                         const newColors = colors;
