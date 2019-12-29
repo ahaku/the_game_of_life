@@ -1,7 +1,8 @@
 import React, {useState, useRef, useCallback}from 'react';
 import produce from 'immer';
 import ButtonMD from '@material-ui/core/Button';
-import ButtonRow from './components/ButtonRow/ButtonRow'
+import ButtonRow from './components/ButtonRow/ButtonRow';
+import Grid from './components/Grid/Grid';
 import './Mainpage.css';
 
 const neighborsCoordinates = [
@@ -14,37 +15,6 @@ const neighborsCoordinates = [
     [-1, -1],
     [-1, 0] 
 ]
-
-
-function Grid(props) {
-    const {colors} = props;
-    return (
-        <div className="Grid">
-            <div className="GridWrapper" style={{gridTemplateColumns: `repeat(${props.numberCols}, ${props.cellSize})`}}>
-                {props.grid.map((row, i) =>
-                    row.map((col, j) => (
-                        <div 
-                        className="Cell"
-                        key={`${i}:${j}`}
-                        style={{
-                            width: props.cellSize,
-                            height: props.cellSize,
-                            backgroundColor: props.grid[i][j] ? colors.filledCellBg : colors.emptyCellBg,
-                            border: colors.border
-                        }}
-                        onClick={() => {
-                            const changedGrid = produce(props.grid, copyOfGrid => {
-                                copyOfGrid[i][j] = props.grid[i][j] ? 0 : 1;
-                            })
-                            props.setGrid(changedGrid);
-                        }}
-                        ></div>
-                    ))
-                )}
-            </div>
-        </div>
-    )
-}
 
 function Mainpage() {
     
