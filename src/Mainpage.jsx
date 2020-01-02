@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback}from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import produce from 'immer';
 import ButtonMD from '@material-ui/core/Button';
 import ButtonRow from './components/ButtonRow/ButtonRow';
@@ -13,18 +13,20 @@ const neighborsCoordinates = [
     [1, -1],
     [0, -1],
     [-1, -1],
-    [-1, 0] 
+    [-1, 0]
 ]
 
+let numberGenerations = 0;
+
 function Mainpage() {
-    
+
     const [numberRows, setNumberRows] = useState(30);
     const [numberCols, setNumberCols] = useState(60);
     const [grid, setGrid] = useState(emptyGridGenerate());
     const [cellSize, setSellSize] = useState('18px');
     const [savedGrid, setSavedGrid] = useState(grid);
     const [gameSpeed, setGameSpeed] = useState(100);
-    
+
     const [running, setRunning] = useState(false);
     const [colors, setColors] = useState({
         'pageBackground': 'white',
@@ -59,6 +61,7 @@ function Mainpage() {
 
         setGrid(prevGrid => {
             return produce(prevGrid, nextGrid => {
+                numberGenerations++;
                 for (let i = 0; i < numberRows; i++) {
                     for (let j = 0; j < numberCols; j++) {
                         let numberNeighbors = 0;
@@ -81,42 +84,44 @@ function Mainpage() {
         })
 
         setTimeout(runGame, gameSpeed);
-    }, [numberRows, numberCols, gameSpeed]) 
+    }, [numberRows, numberCols, gameSpeed])
 
 
     return (
-        <div className='Mainpage' style={{backgroundColor: colors.pageBackground}}>
+        <div className='Mainpage' style={{ backgroundColor: colors.pageBackground }}>
             <ButtonRow
-            numberRows={numberRows}
-            numberCols={numberCols}
-            cellSize={cellSize}
-            grid={grid}
-            setGrid={setGrid}
-            colors={colors}
-            emptyGridGenerate={emptyGridGenerate}
-            setSavedGrid={setSavedGrid}
-            savedGrid={savedGrid}
-            gameSpeed={gameSpeed}
-            setGrid={setGrid}
-            running={running}
-            runningRef={runningRef}
-            runGame={runGame}
-            customSizeGridGenerate={customSizeGridGenerate}
-            setColors={setColors}
-            setNumberRows={setNumberRows}
-            setNumberCols={setNumberCols}
-            customSizeGridGenerate={customSizeGridGenerate}
-            colors={colors}
-            setRunning={setRunning}
+                clearGenerationsNumber={() => numberGenerations = 0}
+                numberRows={numberRows}
+                numberCols={numberCols}
+                cellSize={cellSize}
+                grid={grid}
+                setGrid={setGrid}
+                colors={colors}
+                emptyGridGenerate={emptyGridGenerate}
+                setSavedGrid={setSavedGrid}
+                savedGrid={savedGrid}
+                gameSpeed={gameSpeed}
+                setGrid={setGrid}
+                running={running}
+                runningRef={runningRef}
+                runGame={runGame}
+                customSizeGridGenerate={customSizeGridGenerate}
+                setColors={setColors}
+                setNumberRows={setNumberRows}
+                setNumberCols={setNumberCols}
+                customSizeGridGenerate={customSizeGridGenerate}
+                colors={colors}
+                setRunning={setRunning}
             ></ButtonRow>
             <Grid
-            numberRows={numberRows}
-            numberCols={numberCols}
-            cellSize={cellSize}
-            grid={grid}
-            setGrid={setGrid}
-            colors={colors}
+                numberRows={numberRows}
+                numberCols={numberCols}
+                cellSize={cellSize}
+                grid={grid}
+                setGrid={setGrid}
+                colors={colors}
             ></Grid>
+            <div className="GenerationsCount">Generations: {numberGenerations}</div>
         </div>
     )
 }

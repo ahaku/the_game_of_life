@@ -13,6 +13,7 @@ function ButtonRow (props) {
         color='primary' 
         title="Clear"
         onClick={() => {
+            props.clearGenerationsNumber();
             setGrid(emptyGridGenerate())
         }}
         />
@@ -21,6 +22,7 @@ function ButtonRow (props) {
             color='primary'
             title="Random"
             onClick={() => {
+                props.clearGenerationsNumber();
                 const rows = [];
                 for (let i = 0; i < numberRows; i++) {
                     rows.push(Array.from(Array(numberCols), () => Math.random() > 0.7 ? 1 : 0))

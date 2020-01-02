@@ -29,6 +29,10 @@
 .Button {
     background-color: red;
 }
+
+.GenerationsCount {
+    text-align: center;
+}
 /* .Button {
     margin: 4px 12px;
     min-width: 100px;
