@@ -23,7 +23,7 @@ function Mainpage() {
     const [numberRows, setNumberRows] = useState(30);
     const [numberCols, setNumberCols] = useState(60);
     const [grid, setGrid] = useState(emptyGridGenerate());
-    const [cellSize, setSellSize] = useState('18px');
+    const [cellSize, setCellSize] = useState('18px');
     const [savedGrid, setSavedGrid] = useState(grid);
     const [gameSpeed, setGameSpeed] = useState(100);
 
@@ -112,6 +112,9 @@ function Mainpage() {
                 customSizeGridGenerate={customSizeGridGenerate}
                 colors={colors}
                 setRunning={setRunning}
+                removeCellBorder={() => {
+                    setColors({...colors, border: 'none'})
+                }}
             ></ButtonRow>
             <Grid
                 numberRows={numberRows}

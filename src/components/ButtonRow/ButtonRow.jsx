@@ -88,9 +88,10 @@ function ButtonRow (props) {
             color='primary' 
             title='Hide cell border'
             onClick={() => {
-                const newColors = colors;
-                newColors.border = 'none';
-                setColors(newColors)
+                // const newColors = colors;
+                // newColors.border = 'none';
+                // setColors(newColors)
+                props.removeCellBorder()
             }}
         />
     </div>
