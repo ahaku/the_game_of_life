@@ -3,6 +3,7 @@ import produce from 'immer';
 import ButtonMD from '@material-ui/core/Button';
 import ButtonRow from './components/ButtonRow/ButtonRow';
 import Grid from './components/Grid/Grid';
+import ThemeSelector from './components/ThemeSelector/ThemeSelector';
 import './Mainpage.css';
 import ColorThemes from './Data'
 
@@ -91,6 +92,7 @@ function Mainpage() {
 
     return (
         <div className='Mainpage' style={{ backgroundColor: colors.pageBackground }}>
+            <ThemeSelector ColorThemes={ColorThemes} setColors={setColors}></ThemeSelector>
             <ButtonRow
                 clearGenerationsNumber={() => numberGenerations = 0}
                 numberRows={numberRows}
