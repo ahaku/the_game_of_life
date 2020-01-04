@@ -4,6 +4,7 @@ import ButtonMD from '@material-ui/core/Button';
 import ButtonRow from './components/ButtonRow/ButtonRow';
 import Grid from './components/Grid/Grid';
 import './Mainpage.css';
+import ColorThemes from './Data'
 
 const neighborsCoordinates = [
     [-1, 1],
@@ -32,6 +33,7 @@ function Mainpage() {
         'pageBackground': 'white',
         'emptyCellBg': 'rgb(236, 236, 236)',
         'filledCellBg': 'dodgerblue',
+        'fontColor': '#212121',
         'border': '1px solid white'
     })
 
@@ -124,7 +126,7 @@ function Mainpage() {
                 setGrid={setGrid}
                 colors={colors}
             ></Grid>
-            <div className="GenerationsCount">Generations: {numberGenerations}</div>
+            <div className="GenerationsCount" style={{color: colors.fontColor}}>Generations: {numberGenerations}</div>
         </div>
     )
 }

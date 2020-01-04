@@ -32,6 +32,7 @@
 
 .GenerationsCount {
     text-align: center;
+    font-weight: bold;
 }
 /* .Button {
     margin: 4px 12px;
