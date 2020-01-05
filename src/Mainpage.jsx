@@ -94,12 +94,6 @@ function Mainpage() {
 
     return (
         <div className='Mainpage' style={{ backgroundColor: colors.pageBackground }}>
-            <Switcher
-                label={'Cell border'}
-                removeCellBorder={() => setColors({...colors, border: 'none'})}
-                showCellBorder={() => setColors({...colors, border: ColorThemes[currentThemeName].border})}
-            ></Switcher>
-            <ThemeSelector ColorThemes={ColorThemes} setColors={setColors} setCurrentThemeName={setCurrentThemeName}></ThemeSelector>
             <ButtonRow
                 clearGenerationsNumber={() => numberGenerations = 0}
                 numberRows={numberRows}
@@ -146,12 +140,19 @@ function Mainpage() {
                             setNumberCols(150)
                             setGrid(customSizeGridGenerate(70, 150))
                             setSavedGrid(customSizeGridGenerate(70, 150))
-                    
+
                         default:
                             break;
                     }
                 }}
             ></ButtonRow>
+            <Switcher
+                label={'Cell border'}
+                removeCellBorder={() => setColors({ ...colors, border: 'none' })}
+                showCellBorder={() => setColors({ ...colors, border: ColorThemes[currentThemeName].border })}
+            ></Switcher>
+            <ThemeSelector ColorThemes={ColorThemes} setColors={setColors} setCurrentThemeName={setCurrentThemeName}></ThemeSelector>
+
             <Grid
                 numberRows={numberRows}
                 numberCols={numberCols}
@@ -160,7 +161,7 @@ function Mainpage() {
                 setGrid={setGrid}
                 colors={colors}
             ></Grid>
-            <div className="GenerationsCount" style={{color: colors.fontColor}}>Generations: {numberGenerations}</div>
+            <div className="GenerationsCount" style={{ color: colors.fontColor }}>Generations: {numberGenerations}</div>
         </div>
     )
 }

@@ -3,6 +3,8 @@ import Button from './Button/Button';
 import IconButton from '@material-ui/core/IconButton';
 import PauseCircleOutlineRoundedIcon from '@material-ui/icons/PauseCircleOutlineRounded';
 import PlayCircleOutlineRoundedIcon from '@material-ui/icons/PlayCircleOutlineRounded';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import './../../Mainpage.css';
 
 function ButtonRow(props) {
@@ -11,60 +13,63 @@ function ButtonRow(props) {
         emptyGridGenerate, setSavedGrid, savedGrid, gameSpeed, setGrid, grid, running, runningRef } = props;
     return (
         <div className="ButtonRow">
-            <Button
-                variant='contained'
-                color='primary'
-                title="Clear"
-                onClick={() => {
-                    props.clearGenerationsNumber();
-                    setGrid(emptyGridGenerate())
-                }}
-            />
-            <Button
-                variant='contained'
-                color='primary'
-                title="Random"
-                onClick={() => {
-                    props.clearGenerationsNumber();
-                    const rows = [];
-                    for (let i = 0; i < numberRows; i++) {
-                        rows.push(Array.from(Array(numberCols), () => Math.random() > 0.7 ? 1 : 0))
-                    }
-                    setGrid(rows);
-                }}
-            />
-            <Button
-                variant='contained'
-                color='primary'
-                title="Save grid"
-                onClick={() => {
-                    setSavedGrid(grid);
-                }}
-            />
-            <Button
-                variant='contained'
-                color='primary'
-                title="Load grid"
-                onClick={() => {
-                    setGrid(savedGrid);
-                }}
-            />
-            <IconButton
-                variant='contained'
-                color='secondary'
-                title='Play/Pause'
-                onClick={() => {
-                    setRunning(!running)
-                    console.log(gameSpeed)
-                    if (!running) {
-                        runningRef.current = true;
-                        runGame();
-                    }
-                }}>
-                {runningRef.current ? <PauseCircleOutlineRoundedIcon fontSize='large' /> : <PlayCircleOutlineRoundedIcon fontSize='large' />}
-                {/* <PlayCircleOutlineRoundedIcon color="primary" fontSize='medium'/> */}
-            </IconButton>
-            {/* <Button
+            <AppBar position="static">
+                <Toolbar className='ToolBar'>
+                    <Button
+                        variant='contained'
+                        // color='default'
+                        title="Clear"
+                        onClick={() => {
+                            props.clearGenerationsNumber();
+                            setGrid(emptyGridGenerate())
+                        }}
+                    />
+                    <Button
+                        variant='contained'
+                        // color='primary'
+                        title="Random"
+                        onClick={() => {
+                            props.clearGenerationsNumber();
+                            const rows = [];
+                            for (let i = 0; i < numberRows; i++) {
+                                rows.push(Array.from(Array(numberCols), () => Math.random() > 0.7 ? 1 : 0))
+                            }
+                            setGrid(rows);
+                        }}
+                    />
+                    <IconButton
+                        variant='contained'
+                        // color='secondary'
+                        title='Play/Pause'
+                        onClick={() => {
+                            setRunning(!running)
+                            console.log(gameSpeed)
+                            if (!running) {
+                                runningRef.current = true;
+                                runGame();
+                            }
+                        }}>
+                        {runningRef.current ? <PauseCircleOutlineRoundedIcon fontSize='large' /> : <PlayCircleOutlineRoundedIcon fontSize='large' />}
+                        {/* <PlayCircleOutlineRoundedIcon color="primary" fontSize='medium'/> */}
+                    </IconButton>
+                    <Button
+                        variant='contained'
+                        // color='primary'
+                        title="Save grid"
+                        onClick={() => {
+                            setSavedGrid(grid);
+                        }}
+                    />
+                    <Button
+                        variant='contained'
+                        // color='primary'
+                        title="Load grid"
+                        onClick={() => {
+                            setGrid(savedGrid);
+                        }}
+                    />
+
+                    {/* <Button
                 variant='contained'
                 color='primary'
                 title={running ? 'Stop' : 'Start'}
@@ -77,28 +82,28 @@ function ButtonRow(props) {
                     }
                 }}
             /> */}
-            <Button
-                variant='contained'
-                color='secondary'
-                disabled={runningRef.current ? true : false}
-                title={'XL'}
-                onClick={() => props.changeGridSize('XL')}
-            />
-            <Button
-                variant='contained'
-                disabled={runningRef.current ? true : false}
-                color='secondary'
-                title={'L'}
-                onClick={() => props.changeGridSize('L')}
-            />
-            <Button
-                variant='contained'
-                disabled={runningRef.current ? true : false}
-                color='secondary'
-                title={'M'}
-                onClick={() => props.changeGridSize('M')}
-            />
-            {/* <Button
+                    <Button
+                        variant='contained'
+                        // color='secondary'
+                        disabled={runningRef.current ? true : false}
+                        title={'XL'}
+                        onClick={() => props.changeGridSize('XL')}
+                    />
+                    <Button
+                        variant='contained'
+                        disabled={runningRef.current ? true : false}
+                        // color='secondary'
+                        title={'L'}
+                        onClick={() => props.changeGridSize('L')}
+                    />
+                    <Button
+                        variant='contained'
+                        disabled={runningRef.current ? true : false}
+                        // color='secondary'
+                        title={'M'}
+                        onClick={() => props.changeGridSize('M')}
+                    />
+                    {/* <Button
             variant='contained'
             color='primary' 
             title='50 x 50'
@@ -122,6 +127,9 @@ function ButtonRow(props) {
                 setSavedGrid(customSizeGridGenerate(30, 30));
             }}
         /> */}
+
+                </Toolbar>
+            </AppBar>
         </div>
     )
 }
