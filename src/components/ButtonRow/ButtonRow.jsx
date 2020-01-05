@@ -61,6 +61,24 @@ function ButtonRow (props) {
         />
         <Button
             variant='contained'
+            color='secondary'
+            title={'XL'}
+            onClick={() => props.changeGridSize('XL')}
+        />
+                <Button
+            variant='contained'
+            color='secondary'
+            title={'L'}
+            onClick={() => props.changeGridSize('L')}
+        />
+                <Button
+            variant='contained'
+            color='secondary'
+            title={'M'}
+            onClick={() => props.changeGridSize('M')}
+        />
+        {/* <Button
+            variant='contained'
             color='primary' 
             title='50 x 50'
             disabled={runningRef.current ? true : false}
@@ -82,7 +100,7 @@ function ButtonRow (props) {
                 setNumberCols(30);
                 setSavedGrid(customSizeGridGenerate(30, 30));
             }}
-        />
+        /> */}
     </div>
     )
 }

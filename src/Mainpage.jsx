@@ -23,10 +23,10 @@ let numberGenerations = 0;
 
 function Mainpage() {
 
-    const [numberRows, setNumberRows] = useState(30);
-    const [numberCols, setNumberCols] = useState(60);
+    const [numberRows, setNumberRows] = useState(36);
+    const [numberCols, setNumberCols] = useState(70);
     const [grid, setGrid] = useState(emptyGridGenerate());
-    const [cellSize, setCellSize] = useState('18px');
+    const [cellSize, setCellSize] = useState('16px');
     const [savedGrid, setSavedGrid] = useState(grid);
     const [gameSpeed, setGameSpeed] = useState(100);
     const [currentThemeName, setCurrentThemeName] = useState('Default');
@@ -123,8 +123,33 @@ function Mainpage() {
                 customSizeGridGenerate={customSizeGridGenerate}
                 colors={colors}
                 setRunning={setRunning}
-                removeCellBorder={() => {
-                    setColors({...colors, border: 'none'})
+                changeGridSize={(size) => {
+                    switch (size) {
+                        case 'M':
+                            setCellSize('16px')
+                            setNumberRows(36)
+                            setNumberCols(70)
+                            setGrid(customSizeGridGenerate(36, 70))
+                            setSavedGrid(customSizeGridGenerate(36, 70))
+                            break;
+                        case 'L':
+                            setCellSize('12px')
+                            setNumberRows(46)
+                            setNumberCols(110)
+                            setGrid(customSizeGridGenerate(46, 110))
+                            setSavedGrid(customSizeGridGenerate(46, 110))
+
+                            break;
+                        case 'XL':
+                            setCellSize('8px')
+                            setNumberRows(70)
+                            setNumberCols(150)
+                            setGrid(customSizeGridGenerate(70, 150))
+                            setSavedGrid(customSizeGridGenerate(70, 150))
+                    
+                        default:
+                            break;
+                    }
                 }}
             ></ButtonRow>
             <Grid
