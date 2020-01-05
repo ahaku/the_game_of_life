@@ -15,7 +15,7 @@ export default function Switcher(props) {
 
     return (
         <div className="SwitcherWrapper">
-        <p>Checked: {checked.toString()}</p>
+            {props.label}
             <Switch
                 checked={checked}
                 onChange={handleChange}

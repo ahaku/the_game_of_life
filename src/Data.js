@@ -11,7 +11,7 @@ export const ColorThemes = {
         'emptyCellBg': '#212121',
         'filledCellBg': '#0F0',
         'fontColor': '#0F0',
-        'border': '1px solid darkgray'
+        'border': '1px solid black'
     },
     'Cool and Fresh': {
         'pageBackground': '#8ee4af',

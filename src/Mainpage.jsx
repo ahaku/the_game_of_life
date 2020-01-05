@@ -95,6 +95,7 @@ function Mainpage() {
     return (
         <div className='Mainpage' style={{ backgroundColor: colors.pageBackground }}>
             <Switcher
+                label={'Cell border'}
                 removeCellBorder={() => setColors({...colors, border: 'none'})}
                 showCellBorder={() => setColors({...colors, border: ColorThemes[currentThemeName].border})}
             ></Switcher>
