@@ -83,17 +83,6 @@ function ButtonRow (props) {
                 setSavedGrid(customSizeGridGenerate(30, 30));
             }}
         />
-        <Button 
-            variant='contained'
-            color='primary' 
-            title='Hide cell border'
-            onClick={() => {
-                // const newColors = colors;
-                // newColors.border = 'none';
-                // setColors(newColors)
-                props.removeCellBorder()
-            }}
-        />
     </div>
     )
 }
