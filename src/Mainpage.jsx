@@ -4,6 +4,7 @@ import ButtonMD from '@material-ui/core/Button';
 import ButtonRow from './components/ButtonRow/ButtonRow';
 import Grid from './components/Grid/Grid';
 import ThemeSelector from './components/ThemeSelector/ThemeSelector';
+import Switcher from './components/Switcher/Switcher'
 import './Mainpage.css';
 import ColorThemes from './Data'
 
@@ -28,6 +29,7 @@ function Mainpage() {
     const [cellSize, setCellSize] = useState('18px');
     const [savedGrid, setSavedGrid] = useState(grid);
     const [gameSpeed, setGameSpeed] = useState(100);
+    const [currentThemeName, setCurrentThemeName] = useState('Default');
 
     const [running, setRunning] = useState(false);
     const [colors, setColors] = useState({
@@ -92,7 +94,11 @@ function Mainpage() {
 
     return (
         <div className='Mainpage' style={{ backgroundColor: colors.pageBackground }}>
-            <ThemeSelector ColorThemes={ColorThemes} setColors={setColors}></ThemeSelector>
+            <Switcher
+                removeCellBorder={() => setColors({...colors, border: 'none'})}
+                showCellBorder={() => setColors({...colors, border: ColorThemes[currentThemeName].border})}
+            ></Switcher>
+            <ThemeSelector ColorThemes={ColorThemes} setColors={setColors} setCurrentThemeName={setCurrentThemeName}></ThemeSelector>
             <ButtonRow
                 clearGenerationsNumber={() => numberGenerations = 0}
                 numberRows={numberRows}
