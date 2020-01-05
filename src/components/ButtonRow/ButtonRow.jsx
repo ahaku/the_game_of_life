@@ -1,5 +1,8 @@
 import React from 'react';
 import Button from './Button/Button';
+import IconButton from '@material-ui/core/IconButton';
+import PauseCircleOutlineRoundedIcon from '@material-ui/icons/PauseCircleOutlineRounded';
+import PlayCircleOutlineRoundedIcon from '@material-ui/icons/PlayCircleOutlineRounded';
 import './../../Mainpage.css';
 
 function ButtonRow(props) {
@@ -46,7 +49,22 @@ function ButtonRow(props) {
                     setGrid(savedGrid);
                 }}
             />
-            <Button
+            <IconButton
+                variant='contained'
+                color='secondary'
+                title='Play/Pause'
+                onClick={() => {
+                    setRunning(!running)
+                    console.log(gameSpeed)
+                    if (!running) {
+                        runningRef.current = true;
+                        runGame();
+                    }
+                }}>
+                {runningRef.current ? <PauseCircleOutlineRoundedIcon fontSize='large' /> : <PlayCircleOutlineRoundedIcon fontSize='large' />}
+                {/* <PlayCircleOutlineRoundedIcon color="primary" fontSize='medium'/> */}
+            </IconButton>
+            {/* <Button
                 variant='contained'
                 color='primary'
                 title={running ? 'Stop' : 'Start'}
@@ -58,7 +76,7 @@ function ButtonRow(props) {
                         runGame();
                     }
                 }}
-            />
+            /> */}
             <Button
                 variant='contained'
                 color='secondary'
