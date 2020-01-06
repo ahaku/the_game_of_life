@@ -7,6 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Switcher from '../Switcher/Switcher'
 import ThemeSelector from '../ThemeSelector/ThemeSelector';
+import ThemeSelectorMD from '../ThemeSelector/ThemeSelectorMD'
 
 import Dialog, { DialogProps } from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -44,12 +45,17 @@ function Settings(props) {
                         showCellBorder={() => props.setColors({ ...props.colors, border: props.ColorThemes[props.currentThemeName].border })}
 
                     ></Switcher>
-                    <ThemeSelector 
+                    {/* <ThemeSelector 
                     ColorThemes={props.ColorThemes} 
                     setColors={props.setColors} 
                     setCurrentThemeName={props.setCurrentThemeName}>
 
-                    </ThemeSelector>
+                    </ThemeSelector> */}
+                    <ThemeSelectorMD
+                        ColorThemes={props.ColorThemes}
+                        setColors={props.setColors}
+                        setCurrentThemeName={props.setCurrentThemeName}
+                    ></ThemeSelectorMD>
                     <Button
                         variant='contained'
                         color='secondary'
