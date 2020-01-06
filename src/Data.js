@@ -1,9 +1,9 @@
 export const ColorThemes = {
     'Default': {
-        'pageBackground': 'white',
+        'pageBackground': '#1240AB',
         'emptyCellBg': 'rgb(236, 236, 236)',
         'filledCellBg': 'dodgerblue',
-        'fontColor': '#212121',
+        'fontColor': 'white',
         'border': '1px solid lightgray'
     },
     'Console': {
