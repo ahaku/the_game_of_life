@@ -1,6 +1,5 @@
 import React, { useState, useRef, useCallback } from 'react';
 import produce from 'immer';
-import ButtonMD from '@material-ui/core/Button';
 import ButtonRow from './components/ButtonRow/ButtonRow';
 import Grid from './components/Grid/Grid';
 import ThemeSelector from './components/ThemeSelector/ThemeSelector';
@@ -106,7 +105,6 @@ function Mainpage() {
                 setSavedGrid={setSavedGrid}
                 savedGrid={savedGrid}
                 gameSpeed={gameSpeed}
-                setGrid={setGrid}
                 running={running}
                 runningRef={runningRef}
                 runGame={runGame}
@@ -114,9 +112,9 @@ function Mainpage() {
                 setColors={setColors}
                 setNumberRows={setNumberRows}
                 setNumberCols={setNumberCols}
-                customSizeGridGenerate={customSizeGridGenerate}
-                colors={colors}
                 setRunning={setRunning}
+                ColorThemes={ColorThemes}
+                currentThemeName={currentThemeName}
                 changeGridSize={(size) => {
                     switch (size) {
                         case 'M':
@@ -132,7 +130,6 @@ function Mainpage() {
                             setNumberCols(110)
                             setGrid(customSizeGridGenerate(46, 110))
                             setSavedGrid(customSizeGridGenerate(46, 110))
-
                             break;
                         case 'XL':
                             setCellSize('8px')
@@ -140,7 +137,7 @@ function Mainpage() {
                             setNumberCols(150)
                             setGrid(customSizeGridGenerate(70, 150))
                             setSavedGrid(customSizeGridGenerate(70, 150))
-
+                            break;
                         default:
                             break;
                     }

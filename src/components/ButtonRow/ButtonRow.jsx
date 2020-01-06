@@ -1,11 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from './Button/Button';
 import IconButton from '@material-ui/core/IconButton';
 import PauseCircleOutlineRoundedIcon from '@material-ui/icons/PauseCircleOutlineRounded';
 import PlayCircleOutlineRoundedIcon from '@material-ui/icons/PlayCircleOutlineRounded';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Switcher from '../Switcher/Switcher'
+
+import Dialog, { DialogProps } from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+
+
 import './../../Mainpage.css';
+
+
+function Settings(props) {
+    const [open, setOpen] = useState(false)
+
+    const handleClickOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
+
+    return (
+        <React.Fragment>
+            <Button variant="contained" color="primary" title='Settings' onClick={handleClickOpen}>
+            </Button>
+
+            <Dialog
+            open={open}
+            onClose={handleClose}
+            >
+                <DialogTitle>Настройки</DialogTitle>
+                <DialogContent>
+                    <Switcher
+                        label={'Cell border'}
+                        removeCellBorder={() => props.setColors({ ...props.colors, border: 'none' })}
+                        showCellBorder={() => props.setColors({ ...props.colors, border: props.ColorThemes[props.currentThemeName].border })}
+
+                    ></Switcher>
+                </DialogContent>
+
+            </Dialog>
+        </React.Fragment>
+    )
+}
 
 function ButtonRow(props) {
     const { setColors, setNumberRows, setRunning,
@@ -103,6 +146,12 @@ function ButtonRow(props) {
                         title={'M'}
                         onClick={() => props.changeGridSize('M')}
                     />
+                    <Settings
+                        colors={colors}
+                        setColors={setColors}
+                        ColorThemes={props.ColorThemes}
+                        currentThemeName={props.currentThemeName}
+                    ></Settings>
                     {/* <Button
             variant='contained'
             color='primary' 
