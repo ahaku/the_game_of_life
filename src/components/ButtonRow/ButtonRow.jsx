@@ -47,7 +47,30 @@ function Settings(props) {
                     <ThemeSelector 
                     ColorThemes={props.ColorThemes} 
                     setColors={props.setColors} 
-                    setCurrentThemeName={props.setCurrentThemeName}></ThemeSelector>
+                    setCurrentThemeName={props.setCurrentThemeName}>
+
+                    </ThemeSelector>
+                    <Button
+                        variant='contained'
+                        color='secondary'
+                        disabled={props.runningRef.current ? true : false}
+                        title={'XL'}
+                        onClick={() => props.changeGridSize('XL')}
+                    />
+                    <Button
+                        variant='contained'
+                        disabled={props.runningRef.current ? true : false}
+                        color='secondary'
+                        title={'L'}
+                        onClick={() => props.changeGridSize('L')}
+                    />
+                    <Button
+                        variant='contained'
+                        disabled={props.runningRef.current ? true : false}
+                        color='secondary'
+                        title={'M'}
+                        onClick={() => props.changeGridSize('M')}
+                    />
 
                 </DialogContent>
 
@@ -131,7 +154,7 @@ function ButtonRow(props) {
                     }
                 }}
             /> */}
-                    <Button
+                    {/* <Button
                         variant='contained'
                         // color='secondary'
                         disabled={runningRef.current ? true : false}
@@ -151,7 +174,7 @@ function ButtonRow(props) {
                         // color='secondary'
                         title={'M'}
                         onClick={() => props.changeGridSize('M')}
-                    />
+                    /> */}
                     <Settings
                         colors={colors}
                         setColors={setColors}
@@ -159,6 +182,8 @@ function ButtonRow(props) {
                         currentThemeName={props.currentThemeName}
                         ColorThemes={props.ColorThemes} 
                         setCurrentThemeName={props.setCurrentThemeName}
+                        runningRef={runningRef}
+                        changeGridSize={props.changeGridSize}
                     ></Settings>
                     {/* <Button
             variant='contained'

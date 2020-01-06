@@ -146,12 +146,12 @@ function Mainpage() {
                     }
                 }}
             ></ButtonRow>
-            <Switcher
+            {/* <Switcher
                 label={'Cell border'}
                 removeCellBorder={() => setColors({ ...colors, border: 'none' })}
                 showCellBorder={() => setColors({ ...colors, border: ColorThemes[currentThemeName].border })}
             ></Switcher>
-            <ThemeSelector ColorThemes={ColorThemes} setColors={setColors} setCurrentThemeName={setCurrentThemeName}></ThemeSelector>
+            <ThemeSelector ColorThemes={ColorThemes} setColors={setColors} setCurrentThemeName={setCurrentThemeName}></ThemeSelector> */}
 
             <Grid
                 numberRows={numberRows}
