@@ -115,6 +115,9 @@ function Mainpage() {
                 setRunning={setRunning}
                 ColorThemes={ColorThemes}
                 currentThemeName={currentThemeName}
+                ColorThemes={ColorThemes} 
+                setColors={setColors} 
+                setCurrentThemeName={setCurrentThemeName}
                 changeGridSize={(size) => {
                     switch (size) {
                         case 'M':

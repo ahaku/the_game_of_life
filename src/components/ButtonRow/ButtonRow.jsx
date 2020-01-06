@@ -6,6 +6,7 @@ import PlayCircleOutlineRoundedIcon from '@material-ui/icons/PlayCircleOutlineRo
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Switcher from '../Switcher/Switcher'
+import ThemeSelector from '../ThemeSelector/ThemeSelector';
 
 import Dialog, { DialogProps } from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -43,6 +44,11 @@ function Settings(props) {
                         showCellBorder={() => props.setColors({ ...props.colors, border: props.ColorThemes[props.currentThemeName].border })}
 
                     ></Switcher>
+                    <ThemeSelector 
+                    ColorThemes={props.ColorThemes} 
+                    setColors={props.setColors} 
+                    setCurrentThemeName={props.setCurrentThemeName}></ThemeSelector>
+
                 </DialogContent>
 
             </Dialog>
@@ -151,6 +157,8 @@ function ButtonRow(props) {
                         setColors={setColors}
                         ColorThemes={props.ColorThemes}
                         currentThemeName={props.currentThemeName}
+                        ColorThemes={props.ColorThemes} 
+                        setCurrentThemeName={props.setCurrentThemeName}
                     ></Settings>
                     {/* <Button
             variant='contained'
