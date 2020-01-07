@@ -7,6 +7,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Switcher from '../Switcher/Switcher'
 import ThemeSelector from '../ThemeSelector/ThemeSelector';
+import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
 import ThemeSelectorMD from '../ThemeSelector/ThemeSelectorMD'
 
 import Dialog, { DialogProps } from '@material-ui/core/Dialog';
@@ -28,6 +30,9 @@ function Settings(props) {
         setOpen(false)
     }
 
+    const handleSpeedChange = (event, newValue) => {
+        props.setGameSpeed(newValue);
+    }
     return (
         <React.Fragment>
             <Button variant="contained" color="primary" title='Settings' onClick={handleClickOpen}>
@@ -76,6 +81,19 @@ function Settings(props) {
                         color='secondary'
                         title={'M'}
                         onClick={() => props.changeGridSize('M')}
+                    />
+                    <Typography id="discrete-slider-always" gutterBottom>
+                        Game speed (ms)
+                    </Typography>
+                    <Slider
+                        defaultValue={100}
+                        aria-labelledby="discrete-slider-always"
+                        step={100}
+                        valueLabelDisplay="auto"
+                        min={0}
+                        max={1500}
+                        value={props.gameSpeed}
+                        onChange={handleSpeedChange}
                     />
 
                 </DialogContent>
@@ -190,6 +208,8 @@ function ButtonRow(props) {
                         setCurrentThemeName={props.setCurrentThemeName}
                         runningRef={runningRef}
                         changeGridSize={props.changeGridSize}
+                        gameSpeed={props.gameSpeed}
+                        setGameSpeed={props.setGameSpeed}
                     ></Settings>
                     {/* <Button
             variant='contained'

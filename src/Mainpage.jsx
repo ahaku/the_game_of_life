@@ -105,6 +105,7 @@ function Mainpage() {
                 setSavedGrid={setSavedGrid}
                 savedGrid={savedGrid}
                 gameSpeed={gameSpeed}
+                setGameSpeed={setGameSpeed}
                 running={running}
                 runningRef={runningRef}
                 runGame={runGame}
