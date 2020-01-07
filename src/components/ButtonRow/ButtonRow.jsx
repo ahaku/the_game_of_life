@@ -10,7 +10,7 @@ import ThemeSelector from '../ThemeSelector/ThemeSelector';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import ThemeSelectorMD from '../ThemeSelector/ThemeSelectorMD'
-
+import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import Dialog, { DialogProps } from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -18,6 +18,35 @@ import DialogContent from '@material-ui/core/DialogContent';
 
 import './../../Mainpage.css';
 
+function Reference(props) {
+    const [open, setOpen] = useState(false)
+
+    const handleClickOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
+
+    return (
+        <React.Fragment>
+            <IconButton onClick={handleClickOpen}>
+                <HelpOutlineOutlinedIcon ></HelpOutlineOutlinedIcon>
+            </IconButton>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                scroll='paper'
+            >
+                <DialogTitle>Справка</DialogTitle>
+                <DialogContent>
+                    Lorem ipsum dolor sit amet.
+                </DialogContent>
+            </Dialog>
+        </React.Fragment>
+    )
+}
 
 function Settings(props) {
     const [open, setOpen] = useState(false)
@@ -212,6 +241,7 @@ function ButtonRow(props) {
                         gameSpeed={props.gameSpeed}
                         setGameSpeed={props.setGameSpeed}
                     ></Settings>
+                    <Reference ></Reference>
                     {/* <Button
             variant='contained'
             color='primary' 
