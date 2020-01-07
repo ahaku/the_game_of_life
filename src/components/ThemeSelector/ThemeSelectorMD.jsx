@@ -19,9 +19,10 @@ export default function ThemeSelectorMD (props) {
     for (let key in props.ColorThemes) {
         items.push(<MenuItem value={key}>{key}</MenuItem>)
     }
+
     return (
         <FormControl >
-        <Select value={selectedTheme} displayEmpty onChange={handleChange}  >
+        <Select value={props.currentThemeName} displayEmpty onChange={handleChange}  >
           <MenuItem value="" disabled>
             Select a theme
           </MenuItem>

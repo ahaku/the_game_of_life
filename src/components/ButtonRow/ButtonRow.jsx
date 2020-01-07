@@ -60,6 +60,7 @@ function Settings(props) {
                         ColorThemes={props.ColorThemes}
                         setColors={props.setColors}
                         setCurrentThemeName={props.setCurrentThemeName}
+                        currentThemeName={props.currentThemeName}
                     ></ThemeSelectorMD>
                     <Button
                         variant='contained'
