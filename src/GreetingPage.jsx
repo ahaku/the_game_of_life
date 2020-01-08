@@ -5,7 +5,8 @@ import Reference from './components/ButtonRow/Reference/Reference'
 const daytimeStyles = {
     'Day': {
         backgroundColor: 'lightgreen',
-        color: 'white'
+        color: 'white',
+        
     },
     'Evening': {
         backgroundColor: 'lightblue',
@@ -16,8 +17,9 @@ const daytimeStyles = {
         color: 'black'
     },
     'Night': {
-        backgroundColor: '#212121',
-        color: 'white'
+        // backgroundColor: '#212121',
+        color: 'white',
+        background: 'url("https://yastatic.net/s3/liza/_themes/f01586627260f7a5a99ac216ecdf799c-bg.gif")'
     }
 }
 
@@ -37,10 +39,23 @@ function GrretingPage() {
         }
     }
 
+    const greetingText = (timeOfDay) => {
+        if (timeOfDay === 'Night') {
+            return 'Доброй ночи, дорогой друг!';
+        } else if (timeOfDay === 'Morning') {
+            return 'Доброt утро, дорогой друг!'
+        } else if (timeOfDay === 'Evening') {
+            return 'Добрый вечер, дорогой друг!'
+        } else {
+            return 'Добрый день, дорогой друг!'
+        }
+    }
+
     return (
         <div className='GreetingPageWrapper' style={style}>
+            <h1>"Игра Жизни"</h1>
+            <h2>{greetingText(timeOfTheDay())}</h2>
             <Link href="/mainpage">Играть</Link>
-            <h1>Greeting page</h1>
         </div>
         
     )
