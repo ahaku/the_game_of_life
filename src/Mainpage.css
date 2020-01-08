@@ -1,3 +1,4 @@
+
 .Mainpage {
     min-height: 100vh;
 }
@@ -6,7 +7,11 @@
     display: grid;
     
 }
-
+.GreetingPageWrapper {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 .GridWrapper {
     display: grid;
     margin: 10px auto;
