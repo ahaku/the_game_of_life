@@ -11,6 +11,7 @@ import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import ThemeSelectorMD from '../ThemeSelector/ThemeSelectorMD'
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
+import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicationsRounded';
 import Dialog, { DialogProps } from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -91,8 +92,9 @@ function Settings(props) {
     }
     return (
         <React.Fragment>
-            <Button variant="contained" color="primary" title='Settings' onClick={handleClickOpen}>
-            </Button>
+            <IconButton variant="contained"  title='Settings' onClick={handleClickOpen}>
+                <SettingsApplicationsRoundedIcon></SettingsApplicationsRoundedIcon>
+            </IconButton>
 
             <Dialog
             open={open}
