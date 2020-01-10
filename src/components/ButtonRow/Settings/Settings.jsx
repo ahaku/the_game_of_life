@@ -40,7 +40,7 @@ export default function Settings(props) {
                         label={'Cell border'}
                         removeCellBorder={() => props.setColors({ ...props.colors, border: 'none' })}
                         showCellBorder={() => props.setColors({ ...props.colors, border: props.ColorThemes[props.currentThemeName].border })}
-
+                        checked={props.colors.border !== 'none'}
                     ></Switcher>
                     {/* <ThemeSelector 
                     ColorThemes={props.ColorThemes} 
