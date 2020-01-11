@@ -22,8 +22,8 @@ let numberGenerations = 0;
 
 function Mainpage() {
 
-    const [numberRows, setNumberRows] = useState(36);
-    const [numberCols, setNumberCols] = useState(70);
+    const [numberRows, setNumberRows] = useState(40);
+    const [numberCols, setNumberCols] = useState(80);
     const [grid, setGrid] = useState(emptyGridGenerate());
     const [cellSize, setCellSize] = useState('16px');
     const [savedGrid, setSavedGrid] = useState(grid);
@@ -123,24 +123,24 @@ function Mainpage() {
                     switch (size) {
                         case 'M':
                             setCellSize('16px')
-                            setNumberRows(36)
-                            setNumberCols(70)
-                            setGrid(customSizeGridGenerate(36, 70))
-                            setSavedGrid(customSizeGridGenerate(36, 70))
+                            setNumberRows(40)
+                            setNumberCols(80)
+                            setGrid(customSizeGridGenerate(40, 80))
+                            setSavedGrid(customSizeGridGenerate(40, 80))
                             break;
                         case 'L':
                             setCellSize('12px')
-                            setNumberRows(46)
+                            setNumberRows(50)
                             setNumberCols(110)
-                            setGrid(customSizeGridGenerate(46, 110))
-                            setSavedGrid(customSizeGridGenerate(46, 110))
+                            setGrid(customSizeGridGenerate(50, 110))
+                            setSavedGrid(customSizeGridGenerate(50, 110))
                             break;
                         case 'XL':
                             setCellSize('8px')
-                            setNumberRows(70)
-                            setNumberCols(150)
-                            setGrid(customSizeGridGenerate(70, 150))
-                            setSavedGrid(customSizeGridGenerate(70, 150))
+                            setNumberRows(80)
+                            setNumberCols(170)
+                            setGrid(customSizeGridGenerate(80, 170))
+                            setSavedGrid(customSizeGridGenerate(80, 170))
                             break;
                         default:
                             break;
