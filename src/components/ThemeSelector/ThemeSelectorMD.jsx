@@ -24,11 +24,11 @@ export default function ThemeSelectorMD (props) {
         <FormControl >
         <Select value={props.currentThemeName} displayEmpty onChange={handleChange}  >
           <MenuItem value="" disabled>
-            Select a theme
+            Выберите цветовую тему
           </MenuItem>
             {items}
         </Select>
-        <FormHelperText>Select a theme</FormHelperText>
+        <FormHelperText >Выберите цветовую тему</FormHelperText>
       </FormControl>
     )
 }

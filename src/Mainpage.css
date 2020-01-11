@@ -47,15 +47,10 @@
     text-align: center;
     font-weight: bold;
 }
-/* .Button {
-    margin: 4px 12px;
-    min-width: 100px;
-    padding: 20px;
-    font-weight: bold;
+
+.MuiDialogContent-root>div {
+    margin: 20px 0;
 }
-.Button:hover {
-    cursor: pointer;
+.GridSizeButtons>button {
+    margin-right: 20px;
 }
-.Button:active {
-    background-color: darkgray;
-} */

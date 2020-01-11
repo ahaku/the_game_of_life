@@ -18,7 +18,7 @@ export const ColorThemes = {
         'emptyCellBg': '#edf5e1',
         'filledCellBg': '#5cdb95',
         'fontColor': '#05386b',
-        'border': '1px solid darkgray'
+        'border': '1px solid lightgray'
     },
     'Audacious and Vibrant': {
         'pageBackground': '#97caef',

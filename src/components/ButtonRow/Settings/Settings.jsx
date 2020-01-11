@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import SettingsApplicationsRoundedIcon from '@material-ui/icons/SettingsApplicationsRounded';
+import '../../../Mainpage.css'
 
 export default function Settings(props) {
     const [open, setOpen] = React.useState(false)
@@ -26,18 +27,18 @@ export default function Settings(props) {
     }
     return (
         <React.Fragment>
-            <IconButton variant="contained"  title='Settings' onClick={handleClickOpen}>
+            <IconButton variant="contained" title='Settings' onClick={handleClickOpen}>
                 <SettingsApplicationsRoundedIcon></SettingsApplicationsRoundedIcon>
             </IconButton>
 
             <Dialog
-            open={open}
-            onClose={handleClose}
+                open={open}
+                onClose={handleClose}
             >
                 <DialogTitle>Настройки</DialogTitle>
                 <DialogContent>
                     <Switcher
-                        label={'Cell border'}
+                        label={'Границы клеток'}
                         removeCellBorder={() => props.setColors({ ...props.colors, border: 'none' })}
                         showCellBorder={() => props.setColors({ ...props.colors, border: props.ColorThemes[props.currentThemeName].border })}
                         checked={props.colors.border !== 'none'}
@@ -54,29 +55,32 @@ export default function Settings(props) {
                         setCurrentThemeName={props.setCurrentThemeName}
                         currentThemeName={props.currentThemeName}
                     ></ThemeSelectorMD>
-                    <Button
-                        variant='contained'
-                        color='secondary'
-                        disabled={props.runningRef.current ? true : false}
-                        title={'XL'}
-                        onClick={() => props.changeGridSize('XL')}
-                    />
-                    <Button
-                        variant='contained'
-                        disabled={props.runningRef.current ? true : false}
-                        color='secondary'
-                        title={'L'}
-                        onClick={() => props.changeGridSize('L')}
-                    />
-                    <Button
-                        variant='contained'
-                        disabled={props.runningRef.current ? true : false}
-                        color='secondary'
-                        title={'M'}
-                        onClick={() => props.changeGridSize('M')}
-                    />
+                    <div className="GridSizeButtons">
+                        <p>Размер сетки</p>
+                        <Button
+                            variant='contained'
+                            color='secondary'
+                            disabled={props.runningRef.current ? true : false}
+                            title={'XL'}
+                            onClick={() => props.changeGridSize('XL')}
+                        />
+                        <Button
+                            variant='contained'
+                            disabled={props.runningRef.current ? true : false}
+                            color='secondary'
+                            title={'L'}
+                            onClick={() => props.changeGridSize('L')}
+                        />
+                        <Button
+                            variant='contained'
+                            disabled={props.runningRef.current ? true : false}
+                            color='secondary'
+                            title={'M'}
+                            onClick={() => props.changeGridSize('M')}
+                        />
+                    </div>
                     <Typography id="discrete-slider-always" gutterBottom>
-                        Game speed (ms)
+                        Скорость игры (мс)
                     </Typography>
                     <Slider
                         defaultValue={100}
