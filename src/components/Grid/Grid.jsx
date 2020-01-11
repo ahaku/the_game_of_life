@@ -7,7 +7,7 @@ function Grid(props) {
     const {colors} = props;
     return (
         <div className="Grid">
-            <div className="GridWrapper" style={{gridTemplateColumns: `repeat(${props.numberCols}, ${props.cellSize})`}}>
+            <div className="GridWrapper" style={{outline: colors.border, gridTemplateColumns: `repeat(${props.numberCols}, ${props.cellSize})`}}>
                 {props.grid.map((row, i) =>
                     row.map((col, j) => (
                         <div 
