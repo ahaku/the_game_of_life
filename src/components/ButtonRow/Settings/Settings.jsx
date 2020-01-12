@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button';
 import ThemeSelectorMD from '../../ThemeSelector/ThemeSelectorMD'
+import GridSelector from '../../GridSelector/GridSelector'
 import Switcher from '../../Switcher/Switcher'
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
@@ -55,6 +56,8 @@ export default function Settings(props) {
                         setCurrentThemeName={props.setCurrentThemeName}
                         currentThemeName={props.currentThemeName}
                     ></ThemeSelectorMD>
+                    <div>
+                    <GridSelector changeGridSize={props.changeGridSize} setGrid={props.setGrid}></GridSelector></div>
                     <div className="GridSizeButtons">
                         <p>Размер сетки</p>
                         <Button

@@ -130,10 +130,10 @@ function Mainpage() {
                             break;
                         case 'L':
                             setCellSize('12px')
-                            setNumberRows(50)
+                            setNumberRows(52)
                             setNumberCols(110)
-                            setGrid(customSizeGridGenerate(50, 110))
-                            setSavedGrid(customSizeGridGenerate(50, 110))
+                            setGrid(customSizeGridGenerate(52, 110))
+                            setSavedGrid(customSizeGridGenerate(52, 110))
                             break;
                         case 'XL':
                             setCellSize('8px')

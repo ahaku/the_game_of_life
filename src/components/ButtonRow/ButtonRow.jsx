@@ -77,6 +77,7 @@ function ButtonRow(props) {
                         title="Save grid"
                         onClick={() => {
                             setSavedGrid(grid);
+                            localStorage.setItem('Grid', JSON.stringify(grid))
                         }}
                     />
                     <Button
@@ -133,6 +134,7 @@ function ButtonRow(props) {
                         changeGridSize={props.changeGridSize}
                         gameSpeed={props.gameSpeed}
                         setGameSpeed={props.setGameSpeed}
+                        setGrid={props.setGrid}
                     ></Settings>
                     <Reference text={MainpageReferenceText}></Reference>
                     {/* <Button
