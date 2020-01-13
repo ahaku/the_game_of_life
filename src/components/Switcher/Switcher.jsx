@@ -17,6 +17,7 @@ export default function Switcher(props) {
         <div className="SwitcherWrapper">
             {props.label}
             <Switch
+                color='primary'
                 checked={props.checked}
                 onChange={handleChange}
             ></Switch>

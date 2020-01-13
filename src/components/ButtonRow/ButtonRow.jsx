@@ -37,7 +37,7 @@ function ButtonRow(props) {
                     <Button
                         variant='contained'
                         // color='default'
-                        title="Clear"
+                        title="Очистить"
                         onClick={() => {
                             props.clearGenerationsNumber();
                             setGrid(emptyGridGenerate())
@@ -46,7 +46,7 @@ function ButtonRow(props) {
                     <Button
                         variant='contained'
                         // color='primary'
-                        title="Random"
+                        title="Заполнить случайно"
                         onClick={() => {
                             props.clearGenerationsNumber();
                             const rows = [];
@@ -59,7 +59,7 @@ function ButtonRow(props) {
                     <IconButton
                         variant='contained'
                         // color='secondary'
-                        title='Play/Pause'
+                        title='Старт / Стоп'
                         onClick={() => {
                             setRunning(!running)
                             console.log(gameSpeed)
@@ -74,7 +74,7 @@ function ButtonRow(props) {
                     <Button
                         variant='contained'
                         // color='primary'
-                        title="Save grid"
+                        title="Сохранить сетку"
                         onClick={() => {
                             setSavedGrid(grid);
                             localStorage.setItem('Grid', JSON.stringify(grid))
@@ -83,7 +83,7 @@ function ButtonRow(props) {
                     <Button
                         variant='contained'
                         // color='primary'
-                        title="Load grid"
+                        title="Загрузить сетку"
                         onClick={() => {
                             setGrid(savedGrid);
                         }}

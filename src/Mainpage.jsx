@@ -162,7 +162,7 @@ function Mainpage() {
                 setGrid={setGrid}
                 colors={colors}
             ></Grid>
-            <div className="GenerationsCount" style={{ color: colors.fontColor }}>Generations: {numberGenerations}</div>
+            <div className="GenerationsCount" style={{ color: colors.fontColor }}>Поколение: {numberGenerations}</div>
         </div>
     )
 }

@@ -28,7 +28,7 @@ export default function Settings(props) {
     }
     return (
         <React.Fragment>
-            <IconButton variant="contained" title='Settings' onClick={handleClickOpen}>
+            <IconButton variant="contained" title='Настройки' onClick={handleClickOpen}>
                 <SettingsApplicationsRoundedIcon></SettingsApplicationsRoundedIcon>
             </IconButton>
 
@@ -62,7 +62,7 @@ export default function Settings(props) {
                         <p>Размер сетки</p>
                         <Button
                             variant='contained'
-                            color='secondary'
+                            color='primary'
                             disabled={props.runningRef.current ? true : false}
                             title={'XL'}
                             onClick={() => props.changeGridSize('XL')}
@@ -70,14 +70,14 @@ export default function Settings(props) {
                         <Button
                             variant='contained'
                             disabled={props.runningRef.current ? true : false}
-                            color='secondary'
+                            color='primary'
                             title={'L'}
                             onClick={() => props.changeGridSize('L')}
                         />
                         <Button
                             variant='contained'
                             disabled={props.runningRef.current ? true : false}
-                            color='secondary'
+                            color='primary'
                             title={'M'}
                             onClick={() => props.changeGridSize('M')}
                         />
