@@ -54,3 +54,11 @@
 .GridSizeButtons>button {
     margin-right: 20px;
 }
+
+.MuiCard-root {
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

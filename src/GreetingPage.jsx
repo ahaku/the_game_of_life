@@ -1,12 +1,15 @@
 import React from 'react'
 import Link from '@material-ui/core/Link';
+import Card from '@material-ui/core/Card';
+import ButtonMD from '@material-ui/core/Button';
+import './Mainpage.css'
 import Reference from './components/ButtonRow/Reference/Reference'
 
 const daytimeStyles = {
     'Day': {
         backgroundColor: 'lightgreen',
         color: 'white',
-        
+
     },
     'Evening': {
         backgroundColor: 'lightblue',
@@ -32,7 +35,7 @@ function GrretingPage() {
             return 'Night';
         } else if (hours >= 5 && hours < 12) {
             return 'Morning';
-        } else if (hours >=12 && hours < 17) {
+        } else if (hours >= 12 && hours < 17) {
             return 'Day';
         } else {
             return 'Evening';
@@ -53,11 +56,24 @@ function GrretingPage() {
 
     return (
         <div className='GreetingPageWrapper' style={style}>
-            <h1>"Игра Жизни"</h1>
-            <h2>{greetingText(timeOfTheDay())}</h2>
-            <Link href="/mainpage">Играть</Link>
+            <Card>
+                <h1>"Игра Жизни"</h1>
+                <h2>{greetingText(timeOfTheDay())}</h2>
+                {/* <Link underline="none" href="/mainpage">
+                    <ButtonMD variant='contained' color='primary' >Играть
+                    </ButtonMD>
+                </Link> */}
+
+                <ButtonMD variant='contained'>
+                    Узнать правила
+                </ButtonMD>
+                <ButtonMD href="/mainpage" variant='contained' color='primary'>
+                    Играть
+                </ButtonMD>
+
+            </Card>
         </div>
-        
+
     )
 }
 
