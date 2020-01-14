@@ -2,6 +2,8 @@ import React from 'react'
 import Link from '@material-ui/core/Link';
 import Card from '@material-ui/core/Card';
 import ButtonMD from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import MainpageReferenceText from './Text';
 import './Mainpage.css'
 import Reference from './components/ButtonRow/Reference/Reference'
 
@@ -28,6 +30,7 @@ const daytimeStyles = {
 
 function GrretingPage() {
     const [style, setStyle] = React.useState(daytimeStyles[timeOfTheDay()])
+    const [open, setOpen] = React.useState(false);
 
     function timeOfTheDay() {
         const hours = new Date().getHours();
@@ -54,6 +57,14 @@ function GrretingPage() {
         }
     }
 
+    const clickHandler = () => {
+        setOpen(true)
+    }
+
+    const closeHandler = () => {
+        setOpen(false)
+    }
+
     return (
         <div className='GreetingPageWrapper' style={style}>
             <Card>
@@ -64,9 +75,13 @@ function GrretingPage() {
                     </ButtonMD>
                 </Link> */}
 
-                <ButtonMD variant='contained'>
+                <ButtonMD onClick={clickHandler} variant='contained'>
                     Узнать правила
                 </ButtonMD>
+                <Dialog
+                    open={open}
+                    onClose={closeHandler}
+                > {MainpageReferenceText} </Dialog>
                 <ButtonMD href="/mainpage" variant='contained' color='primary'>
                     Играть
                 </ButtonMD>
