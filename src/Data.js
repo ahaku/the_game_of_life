@@ -26,6 +26,13 @@ export const ColorThemes = {
         'filledCellBg': '#fc4445',
         'fontColor': '#212121',
         'border': '1px solid white'
+    },
+    'Splash of color': {
+        'pageBackground': '#f19f4d',
+        'emptyCellBg': '#4484ce',
+        'filledCellBg': '#f9cf00',
+        'fontColor': 'white',
+        'border': '1px solid #d9d9d9'
     }
 }
 
