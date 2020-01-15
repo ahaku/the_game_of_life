@@ -74,17 +74,19 @@ function GrretingPage() {
                     <ButtonMD variant='contained' color='primary' >Играть
                     </ButtonMD>
                 </Link> */}
-
-                <ButtonMD onClick={clickHandler} variant='contained'>
-                    Узнать правила
-                </ButtonMD>
+                <div className='GreetingPageButtonRow'>
+                    <ButtonMD onClick={clickHandler} variant='contained'>
+                        Узнать правила
+                    </ButtonMD>
+                    <ButtonMD href="/mainpage" variant='contained' color='primary'>
+                        Играть
+                    </ButtonMD>
+                </div>
                 <Dialog
                     open={open}
                     onClose={closeHandler}
                 > {MainpageReferenceText} </Dialog>
-                <ButtonMD href="/mainpage" variant='contained' color='primary'>
-                    Играть
-                </ButtonMD>
+
 
             </Card>
         </div>

@@ -16,6 +16,11 @@
     padding: 0;
     height: 100vh;
 }
+.GreetingPageButtonRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 14px;
+}
 .GridWrapper {
     display: grid;
     margin: 10px auto;
