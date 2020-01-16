@@ -56,6 +56,19 @@ function ButtonRow(props) {
                             setGrid(rows);
                         }}
                     />
+                    <Settings
+                        colors={colors}
+                        setColors={setColors}
+                        ColorThemes={props.ColorThemes}
+                        currentThemeName={props.currentThemeName}
+                        ColorThemes={props.ColorThemes}
+                        setCurrentThemeName={props.setCurrentThemeName}
+                        runningRef={runningRef}
+                        changeGridSize={props.changeGridSize}
+                        gameSpeed={props.gameSpeed}
+                        setGameSpeed={props.setGameSpeed}
+                        setGrid={props.setGrid}
+                    ></Settings>
                     <IconButton
                         variant='contained'
                         // color='secondary'
@@ -71,6 +84,7 @@ function ButtonRow(props) {
                         {runningRef.current ? <PauseCircleOutlineRoundedIcon fontSize='large' /> : <PlayCircleOutlineRoundedIcon fontSize='large' />}
                         {/* <PlayCircleOutlineRoundedIcon color="primary" fontSize='medium'/> */}
                     </IconButton>
+                    <Reference text={MainpageReferenceText}></Reference>
                     <Button
                         variant='contained'
                         // color='primary'
@@ -88,80 +102,6 @@ function ButtonRow(props) {
                             setGrid(savedGrid);
                         }}
                     />
-
-                    {/* <Button
-                variant='contained'
-                color='primary'
-                title={running ? 'Stop' : 'Start'}
-                onClick={() => {
-                    setRunning(!running)
-                    console.log(gameSpeed)
-                    if (!running) {
-                        runningRef.current = true;
-                        runGame();
-                    }
-                }}
-            /> */}
-                    {/* <Button
-                        variant='contained'
-                        // color='secondary'
-                        disabled={runningRef.current ? true : false}
-                        title={'XL'}
-                        onClick={() => props.changeGridSize('XL')}
-                    />
-                    <Button
-                        variant='contained'
-                        disabled={runningRef.current ? true : false}
-                        // color='secondary'
-                        title={'L'}
-                        onClick={() => props.changeGridSize('L')}
-                    />
-                    <Button
-                        variant='contained'
-                        disabled={runningRef.current ? true : false}
-                        // color='secondary'
-                        title={'M'}
-                        onClick={() => props.changeGridSize('M')}
-                    /> */}
-                    <Settings
-                        colors={colors}
-                        setColors={setColors}
-                        ColorThemes={props.ColorThemes}
-                        currentThemeName={props.currentThemeName}
-                        ColorThemes={props.ColorThemes} 
-                        setCurrentThemeName={props.setCurrentThemeName}
-                        runningRef={runningRef}
-                        changeGridSize={props.changeGridSize}
-                        gameSpeed={props.gameSpeed}
-                        setGameSpeed={props.setGameSpeed}
-                        setGrid={props.setGrid}
-                    ></Settings>
-                    <Reference text={MainpageReferenceText}></Reference>
-                    {/* <Button
-            variant='contained'
-            color='primary' 
-            title='50 x 50'
-            disabled={runningRef.current ? true : false}
-            onClick={() => {
-                setGrid(customSizeGridGenerate(50, 50));
-                setNumberRows(50);
-                setNumberCols(50);
-                setSavedGrid(customSizeGridGenerate(50, 50));
-            }}
-        />
-        <Button
-            variant='contained'
-            color='primary' 
-            title='30 x 30'
-            disabled={runningRef.current ? true : false}
-            onClick={() => {
-                setGrid(customSizeGridGenerate(30, 30));
-                setNumberRows(30);
-                setNumberCols(30);
-                setSavedGrid(customSizeGridGenerate(30, 30));
-            }}
-        /> */}
-
                 </Toolbar>
             </AppBar>
         </div>

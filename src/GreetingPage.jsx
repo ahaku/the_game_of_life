@@ -70,16 +70,12 @@ function GrretingPage() {
             <Card>
                 <h1>"Игра Жизни"</h1>
                 <h2>{greetingText(timeOfTheDay())}</h2>
-                {/* <Link underline="none" href="/mainpage">
-                    <ButtonMD variant='contained' color='primary' >Играть
-                    </ButtonMD>
-                </Link> */}
                 <div className='GreetingPageButtonRow'>
-                    <ButtonMD onClick={clickHandler} variant='contained'>
-                        Узнать правила
-                    </ButtonMD>
                     <ButtonMD href="/mainpage" variant='contained' color='primary'>
                         Играть
+                    </ButtonMD>
+                    <ButtonMD onClick={clickHandler} variant='contained'>
+                        Узнать правила
                     </ButtonMD>
                 </div>
                 <Dialog
