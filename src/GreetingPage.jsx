@@ -15,11 +15,14 @@ const daytimeStyles = {
     },
     'Evening': {
         backgroundColor: 'lightblue',
-        color: 'black'
+        color: 'black',
+        background: 'url("https://static.vecteezy.com/system/resources/previews/000/359/502/original/vector-purple-landscape-illustration.png") no-repeat center center fixed'
+        
     },
     'Morning': {
         backgroundColor: 'lightgray',
-        color: 'black'
+        color: 'black',
+        background: 'url("https://pbs.twimg.com/media/EAsH8GjUEAA1NRv.jpg:large") no-repeat center center fixed'
     },
     'Night': {
         // backgroundColor: '#212121',
@@ -49,7 +52,7 @@ function GrretingPage() {
         if (timeOfDay === 'Night') {
             return 'Доброй ночи, дорогой друг!';
         } else if (timeOfDay === 'Morning') {
-            return 'Доброt утро, дорогой друг!'
+            return 'Доброе утро, дорогой друг!'
         } else if (timeOfDay === 'Evening') {
             return 'Добрый вечер, дорогой друг!'
         } else {
