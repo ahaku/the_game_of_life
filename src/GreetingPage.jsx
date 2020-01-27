@@ -1,16 +1,15 @@
 import React from 'react'
-import Link from '@material-ui/core/Link';
 import Card from '@material-ui/core/Card';
 import ButtonMD from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MainpageReferenceText from './Text';
 import './Mainpage.css'
-import Reference from './components/ButtonRow/Reference/Reference'
 
 const daytimeStyles = {
     'Day': {
         backgroundColor: 'lightgreen',
         color: 'white',
+        
 
     },
     'Evening': {
@@ -32,7 +31,7 @@ const daytimeStyles = {
 }
 
 function GrretingPage() {
-    const [style, setStyle] = React.useState(daytimeStyles[timeOfTheDay()])
+    const [style] = React.useState(daytimeStyles[timeOfTheDay()])
     const [open, setOpen] = React.useState(false);
 
     function timeOfTheDay() {

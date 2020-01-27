@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Switch from '@material-ui/core/Switch';
 
 export default function Switcher(props) {
-    // const [checked, setChecked] = useState(true);
 
     const handleChange = (event) => {
-        // setChecked(event.target.checked)
+
         if (props.checked) {
             props.removeCellBorder();
         } else if (!props.checked) {

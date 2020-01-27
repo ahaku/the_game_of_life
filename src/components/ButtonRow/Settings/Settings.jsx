@@ -5,7 +5,7 @@ import GridSelector from '../../GridSelector/GridSelector'
 import Switcher from '../../Switcher/Switcher'
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
-import Dialog, { DialogProps } from '@material-ui/core/Dialog';
+import Dialog from '@material-ui/core/Dialog';
 import IconButton from '@material-ui/core/IconButton';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
