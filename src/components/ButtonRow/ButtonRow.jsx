@@ -5,6 +5,7 @@ import Reference from "./Reference/Reference";
 import IconButton from "@material-ui/core/IconButton";
 import PauseCircleOutlineRoundedIcon from "@material-ui/icons/PauseCircleOutlineRounded";
 import PlayCircleOutlineRoundedIcon from "@material-ui/icons/PlayCircleOutlineRounded";
+import SkipNextRoundedIcon from "@material-ui/icons/SkipNextRounded";
 import MainpageReferenceText from "../../Text";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -90,6 +91,13 @@ function ButtonRow(props) {
               <PlayCircleOutlineRoundedIcon fontSize="large" />
             )}
             {/* <PlayCircleOutlineRoundedIcon color="primary" fontSize='medium'/> */}
+          </IconButton>
+          <IconButton
+            variant="contained"
+            title="Один шаг"
+            onClick={props.oneStepEvolution}
+          >
+            <SkipNextRoundedIcon />
           </IconButton>
           <Reference text={MainpageReferenceText}></Reference>
           <Button

@@ -84,9 +84,7 @@ function Mainpage() {
         }
       });
     });
-  }, [numberCols, numberRows])
-
-
+  }, [numberCols, numberRows]);
 
   const runGame = useCallback(() => {
     if (!runningRef.current) {
@@ -127,6 +125,7 @@ function Mainpage() {
         ColorThemes={ColorThemes}
         currentThemeName={currentThemeName}
         setCurrentThemeName={setCurrentThemeName}
+        oneStepEvolution={oneStepEvolution}
         changeGridSize={size => {
           switch (size) {
             case "M":
