@@ -9,7 +9,8 @@ import MainpageReferenceText from "../../Text";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 
-import "./../../Mainpage.css";
+// import "./../../Mainpage.css";
+import "./ButtonRow.css";
 
 function ButtonRow(props) {
   const {

@@ -3,7 +3,8 @@ import Card from "@material-ui/core/Card";
 import ButtonMD from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import { GreetingPageReferenceText } from "./Text";
-import "./Mainpage.css";
+import "./GreetingPage.css";
+// import "./Mainpage.css";
 
 const daytimeStyles = {
   Day: {
