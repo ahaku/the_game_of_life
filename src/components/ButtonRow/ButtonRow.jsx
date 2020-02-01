@@ -9,11 +9,26 @@ import SkipNextRoundedIcon from "@material-ui/icons/SkipNextRounded";
 import MainpageReferenceText from "../../Text";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-
-// import "./../../Mainpage.css";
+import MiniMenu from "./MiniMenu/MiniMenu";
+import { makeStyles } from "@material-ui/core/styles";
 import "./ButtonRow.css";
+const useStyles = makeStyles(theme => ({
+  MiniMenu: {
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block"
+    }
+  },
+  Btn: {
+    display: "block",
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
+  }
+}));
 
 function ButtonRow(props) {
+  const classes = useStyles();
   const {
     setColors,
     setRunning,
@@ -34,32 +49,48 @@ function ButtonRow(props) {
     <div className="ButtonRow">
       <AppBar position="static">
         <Toolbar className="ToolBar">
-          <Button
-            variant="contained"
-            // color='default'
-            title="Очистить"
-            onClick={() => {
-              props.clearGenerationsNumber();
-              setGrid(emptyGridGenerate());
-            }}
-          />
-          <Button
-            variant="contained"
-            // color='primary'
-            title="Заполнить случайно"
-            onClick={() => {
-              props.clearGenerationsNumber();
-              const rows = [];
-              for (let i = 0; i < numberRows; i++) {
-                rows.push(
-                  Array.from(Array(numberCols), () =>
-                    Math.random() > 0.7 ? 1 : 0
-                  )
-                );
-              }
-              setGrid(rows);
-            }}
-          />
+          <div className={classes.MiniMenu}>
+            <MiniMenu
+              setGrid={setGrid}
+              emptyGridGenerate={emptyGridGenerate}
+              numberRows={numberRows}
+              numberCols={numberCols}
+              clearGenerationsNumber={props.clearGenerationsNumber}
+              grid={grid}
+              savedGrid={savedGrid}
+              setSavedGrid={setSavedGrid}
+            />
+          </div>
+          <div className={classes.Btn}>
+            <Button
+              variant="contained"
+              // color='default'
+              title="Очистить"
+              onClick={() => {
+                props.clearGenerationsNumber();
+                setGrid(emptyGridGenerate());
+              }}
+            />
+          </div>
+          <div className={classes.Btn}>
+            <Button
+              variant="contained"
+              // color='primary'
+              title="Заполнить случайно"
+              onClick={() => {
+                props.clearGenerationsNumber();
+                const rows = [];
+                for (let i = 0; i < numberRows; i++) {
+                  rows.push(
+                    Array.from(Array(numberCols), () =>
+                      Math.random() > 0.7 ? 1 : 0
+                    )
+                  );
+                }
+                setGrid(rows);
+              }}
+            />
+          </div>
           <Settings
             colors={colors}
             setColors={setColors}
@@ -100,23 +131,27 @@ function ButtonRow(props) {
             <SkipNextRoundedIcon />
           </IconButton>
           <Reference text={MainpageReferenceText}></Reference>
-          <Button
-            variant="contained"
-            // color='primary'
-            title="Сохранить сетку"
-            onClick={() => {
-              setSavedGrid(grid);
-              localStorage.setItem("Grid", JSON.stringify(grid));
-            }}
-          />
-          <Button
-            variant="contained"
-            // color='primary'
-            title="Загрузить сетку"
-            onClick={() => {
-              setGrid(savedGrid);
-            }}
-          />
+          <div className={classes.Btn}>
+            <Button
+              variant="contained"
+              // color='primary'
+              title="Сохранить сетку"
+              onClick={() => {
+                setSavedGrid(grid);
+                localStorage.setItem("Grid", JSON.stringify(grid));
+              }}
+            />
+          </div>
+          <div className={classes.Btn}>
+            <Button
+              variant="contained"
+              // color='primary'
+              title="Загрузить сетку"
+              onClick={() => {
+                setGrid(savedGrid);
+              }}
+            />
+          </div>
         </Toolbar>
       </AppBar>
     </div>
