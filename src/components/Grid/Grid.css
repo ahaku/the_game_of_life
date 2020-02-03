@@ -1,5 +1,6 @@
 .Grid {
   display: grid;
+  justify-content: center;
 }
 .GreetingPageWrapper {
   display: flex;
@@ -19,4 +20,10 @@
 .Cell:hover {
   cursor: pointer;
   border: 1px solid white;
+}
+.test {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
