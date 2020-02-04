@@ -7,13 +7,13 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   GridAdaptive: {
     [theme.breakpoints.down("md")]: {
-      transform: "scale(0.72) "
+      transform: "scale(0.72)"
     },
     [theme.breakpoints.down("sm")]: {
-      transform: "scale(0.46) "
+      transform: "scale(0.46) rotate(90deg)"
     },
     [theme.breakpoints.down("xs")]: {
-      transform: "scale(0.23) "
+      transform: "scale(0.46)  rotate(90deg) "
     }
   }
 }));
