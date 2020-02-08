@@ -33,7 +33,7 @@ const daytimeStyles = {
   }
 };
 
-function GrretingPage() {
+function GreetingPage() {
   const [style] = React.useState(daytimeStyles[timeOfTheDay()]);
   const [open, setOpen] = React.useState(false);
 
@@ -92,4 +92,4 @@ function GrretingPage() {
   );
 }
 
-export default GrretingPage;
+export default GreetingPage;
