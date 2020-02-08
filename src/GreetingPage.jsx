@@ -29,7 +29,7 @@ const daytimeStyles = {
     // backgroundColor: '#212121',
     color: "white",
     background:
-      'url("https://yastatic.net/s3/liza/_themes/f01586627260f7a5a99ac216ecdf799c-bg.gif")'
+      'url("https://img1.goodfon.ru/original/1920x1080/1/c6/gory-les-noch-firewatch.jpg") no-repeat center center fixed'
   }
 };
 
