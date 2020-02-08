@@ -52,12 +52,6 @@ export default function Settings(props) {
             }
             checked={props.colors.border !== "none"}
           ></Switcher>
-          {/* <ThemeSelector 
-                    ColorThemes={props.ColorThemes} 
-                    setColors={props.setColors} 
-                    setCurrentThemeName={props.setCurrentThemeName}>
-
-                    </ThemeSelector> */}
           <ThemeSelectorMD
             ColorThemes={props.ColorThemes}
             setColors={props.setColors}
