@@ -70,7 +70,6 @@ export default function MainMenu(props) {
             title="Сохранить сетку"
             onClick={() => {
               setSavedGrid(grid);
-              localStorage.setItem("Grid", JSON.stringify(grid));
             }}
           />
           <Button

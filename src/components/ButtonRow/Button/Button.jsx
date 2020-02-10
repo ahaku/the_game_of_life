@@ -1,6 +1,5 @@
 import React from "react";
 import ButtonMD from "@material-ui/core/Button";
-// import './../../../Mainpage.css';
 
 function Button(props) {
   return (

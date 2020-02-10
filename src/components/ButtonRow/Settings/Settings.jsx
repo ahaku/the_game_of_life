@@ -10,7 +10,6 @@ import IconButton from "@material-ui/core/IconButton";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import SettingsApplicationsRoundedIcon from "@material-ui/icons/SettingsApplicationsRounded";
-// import '../../../Mainpage.css'
 
 export default function Settings(props) {
   const [open, setOpen] = React.useState(false);

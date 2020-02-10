@@ -25,7 +25,7 @@ function Mainpage() {
   const [cellSize, setCellSize] = useState("16px");
   const [savedGrid, setSavedGrid] = useState(grid);
   const [gameSpeed, setGameSpeed] = useState(100);
-  const [currentThemeName, setCurrentThemeName] = useState("Default");
+  const [currentThemeName, setCurrentThemeName] = useState("Normal");
 
   const [running, setRunning] = useState(false);
   const [colors, setColors] = useState({

@@ -1,6 +1,5 @@
 import React from "react";
 import produce from "immer";
-// import '../../Mainpage.css';
 import "./Grid.css";
 import { makeStyles } from "@material-ui/core/styles";
 

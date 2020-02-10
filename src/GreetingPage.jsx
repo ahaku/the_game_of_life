@@ -4,7 +4,6 @@ import ButtonMD from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import { GreetingPageReferenceText } from "./Text";
 import "./GreetingPage.css";
-// import "./Mainpage.css";
 
 const daytimeStyles = {
   Day: {
@@ -26,7 +25,6 @@ const daytimeStyles = {
       'url("https://pbs.twimg.com/media/EAsH8GjUEAA1NRv.jpg:large") no-repeat center center fixed'
   },
   Night: {
-    // backgroundColor: '#212121',
     color: "white",
     background:
       'url("https://img1.goodfon.ru/original/1920x1080/1/c6/gory-les-noch-firewatch.jpg") no-repeat center center fixed'

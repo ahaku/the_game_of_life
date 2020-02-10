@@ -12,6 +12,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import MiniMenu from "./MiniMenu/MiniMenu";
 import { makeStyles } from "@material-ui/core/styles";
 import "./ButtonRow.css";
+
 const useStyles = makeStyles(theme => ({
   MiniMenu: {
     display: "none",
@@ -39,7 +40,6 @@ function ButtonRow(props) {
     emptyGridGenerate,
     setSavedGrid,
     savedGrid,
-    gameSpeed,
     setGrid,
     grid,
     running,
@@ -64,7 +64,6 @@ function ButtonRow(props) {
           <div className={classes.Btn}>
             <Button
               variant="contained"
-              // color='default'
               title="Очистить"
               onClick={() => {
                 props.clearGenerationsNumber();
@@ -75,7 +74,6 @@ function ButtonRow(props) {
           <div className={classes.Btn}>
             <Button
               variant="contained"
-              // color='primary'
               title="Заполнить случайно"
               onClick={() => {
                 props.clearGenerationsNumber();
@@ -105,11 +103,9 @@ function ButtonRow(props) {
           ></Settings>
           <IconButton
             variant="contained"
-            // color='secondary'
             title="Старт / Стоп"
             onClick={() => {
               setRunning(!running);
-              console.log(gameSpeed);
               if (!running) {
                 runningRef.current = true;
                 runGame();
@@ -121,7 +117,6 @@ function ButtonRow(props) {
             ) : (
               <PlayCircleOutlineRoundedIcon fontSize="large" />
             )}
-            {/* <PlayCircleOutlineRoundedIcon color="primary" fontSize='medium'/> */}
           </IconButton>
           <IconButton
             variant="contained"
@@ -134,18 +129,15 @@ function ButtonRow(props) {
           <div className={classes.Btn}>
             <Button
               variant="contained"
-              // color='primary'
               title="Сохранить сетку"
               onClick={() => {
                 setSavedGrid(grid);
-                localStorage.setItem("Grid", JSON.stringify(grid));
               }}
             />
           </div>
           <div className={classes.Btn}>
             <Button
               variant="contained"
-              // color='primary'
               title="Загрузить сетку"
               onClick={() => {
                 setGrid(savedGrid);

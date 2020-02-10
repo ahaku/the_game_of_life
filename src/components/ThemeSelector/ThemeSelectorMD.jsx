@@ -6,7 +6,7 @@ import Select from "@material-ui/core/Select";
 import { useState } from "react";
 
 export default function ThemeSelectorMD(props) {
-  const [selectedTheme, setSelectedTheme] = useState("Default");
+  const [selectedTheme, setSelectedTheme] = useState("Normal");
 
   const handleChange = event => {
     setSelectedTheme(event.target.value);
