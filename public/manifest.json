@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Игра жизни",
+  "name": "Клеточный автомат Джона Конвея (Game of Life)",
   "icons": [
     {
       "src": "favicon.ico",

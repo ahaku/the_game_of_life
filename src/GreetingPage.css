@@ -1,0 +1,14 @@
+.GreetingPageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+.GreetingPageButtonRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 14px;
+}
