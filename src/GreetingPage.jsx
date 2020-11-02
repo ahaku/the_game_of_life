@@ -74,7 +74,7 @@ function GreetingPage() {
         <h1>"Игра Жизни"</h1>
         <h2>{greetingText(timeOfTheDay())}</h2>
         <div className="GreetingPageButtonRow">
-          <ButtonMD href="/mainpage" variant="contained" color="primary">
+          <ButtonMD href="#/mainpage" variant="contained" color="primary">
             Играть
           </ButtonMD>
           <ButtonMD onClick={clickHandler} variant="contained">
