@@ -6,6 +6,9 @@
   margin: 0;
   padding: 0;
   height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 .GreetingPageButtonRow {
   display: grid;

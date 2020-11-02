@@ -3,32 +3,32 @@ import Card from "@material-ui/core/Card";
 import ButtonMD from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import { GreetingPageReferenceText } from "./Text";
+import morning from "./images/morning.jpg";
+import day from "./images/day.jpg";
+import evening from "./images/evening.png";
+import night from "./images/night.jpg";
 import "./GreetingPage.css";
 
 const daytimeStyles = {
+  Morning: {
+    backgroundColor: "lightgray",
+    color: "black",
+    backgroundImage: `url(${morning})`,
+  },
   Day: {
     backgroundColor: "lightgreen",
     color: "white",
-    background:
-      'url("https://www.tokkoro.com/picsup/2889456-digital-art-minimalism-nature-hill-trees-sun-birds-house___mixed-wallpapers.jpg") no-repeat center center fixed'
+    backgroundImage: `url(${day})`,
   },
   Evening: {
     backgroundColor: "lightblue",
     color: "black",
-    background:
-      'url("https://static.vecteezy.com/system/resources/previews/000/359/502/original/vector-purple-landscape-illustration.png") no-repeat center center fixed'
-  },
-  Morning: {
-    backgroundColor: "lightgray",
-    color: "black",
-    background:
-      'url("https://pbs.twimg.com/media/EAsH8GjUEAA1NRv.jpg:large") no-repeat center center fixed'
+    backgroundImage: `url(${evening})`,
   },
   Night: {
     color: "white",
-    background:
-      'url("https://img1.goodfon.ru/original/1920x1080/1/c6/gory-les-noch-firewatch.jpg") no-repeat center center fixed'
-  }
+    backgroundImage: `url(${night})`,
+  },
 };
 
 function GreetingPage() {
@@ -48,7 +48,7 @@ function GreetingPage() {
     }
   }
 
-  const greetingText = timeOfDay => {
+  const greetingText = (timeOfDay) => {
     if (timeOfDay === "Night") {
       return "Доброй ночи, дорогой друг!";
     } else if (timeOfDay === "Morning") {
